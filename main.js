@@ -1,30 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const myInput = document.getElementById('myinput');
-  const inputValue = document.getElementById('inputValue');
-  const btn = document.getElementById('btn');
+  const textInput = document.getElementById('textInput');
+  const textOutput = document.getElementById('textOutput');
+  const button = document.getElementById('button');
 
-  function clearClasslist(element) {
+  function setValue(textOutput, textInput) {
+    textOutput.innerText = textInput.value;
+    textInput.value = '';
+  }
+  function clearClasses(element) {
     element.classList.remove(...element.classList);
   }
-
-  function click(event) {
-    if (!(event.key === 'Enter' || event.type === 'mouseup')) return undefined;
-
-    inputValue.innerText = myInput.value;
-    myInput.value = '';
-
-    clearClasslist(inputValue);
-
-    if (/!|@|#|\$|&|\*|%/gi.test(inputValue.innerText)) return inputValue.classList.add('red');
-    inputValue.classList.remove('red');
-
-    if (inputValue.innerText.length > 3) return inputValue.classList.add('green');
-    inputValue.classList.remove('green');
-
-    return undefined;
+  function setColor(element) {
+    if (/!|@|#|\$|&|\*|%/gi.test(element.innerText)) return element.classList.add('red');
+    element.classList.remove('red');
+    if (element.innerText.length > 3) return element.classList.add('green');
+    element.classList.remove('green');
   }
 
-  myInput.addEventListener('keypress', click);
-  btn.addEventListener('keypress', click);
-  btn.addEventListener('mouseup', click);
+  function clickHandler(event) {
+    if (!(event.key === 'Enter' || event.type === 'mouseup')) return undefined;
+    setValue(textOutput, textInput);
+    clearClasses(textOutput);
+    setColor(textOutput);
+  }
+
+  textInput.addEventListener('keypress', clickHandler);
+  button.addEventListener('keypress', clickHandler);
+  button.addEventListener('mouseup', clickHandler);
 });
+
