@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="matterial.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="main.js"></script>
 </head>
 <body>
-    <input id="textInput" type="input">
-    <button id="button" >Click me</button>
-    <p id="textOutput"></p>
+    <div class="content">
+        <label class="text-input matter-textfield-outlined">
+            <span class="matter-tooltip"><span id="tooltip" aria-hidden="true">Enter your text please...</span></span>
+            <input id="textInput" placeholder=" " aria-describedby="tooltip"/>
+            <span>Your text..</span>
+        </label>
+        
+        <button id="button" class="matter-button-outlined" >Click me</button>
+        <p id="textOutput"></p>
+    </div>
+    
 </body>
 </html>
