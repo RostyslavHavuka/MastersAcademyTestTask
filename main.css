@@ -10,5 +10,14 @@ body {
     align-items: center;
 }
 .content {
-    
+    width: 35%;
+}
+.txt {
+    width: 391px;
+    word-wrap: break-word;
+    background: #ebe8dd;
+    font-family: "Courier New", Courier, monospace; 
+    padding: 8px;
+    border: 2px dashed #ada9a5; 
+    min-height: 45px;
 }
